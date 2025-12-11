@@ -47,7 +47,5 @@
 .
 ├── index.html
 ├── css/
-│   └── styles.css          # основні стилі сайту + стилі для dark/light теми
-└── js/
-    └── theme-toggle.js     # логіка перемикання теми і робота з localStorage
+│   └── styles.css          # основні стилі сайту
 
