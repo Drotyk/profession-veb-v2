@@ -1,0 +1,160 @@
+/* --- Змінні кольорів (Theme Variables) --- */
+:root {
+  --bg-color: #1e1e1e;          /* Темно-сірий фон, як у VS Code */
+  --text-main: #d4d4d4;         /* Світло-сірий текст */
+  --accent-blue: #569cd6;       /* Синій для ключових слів */
+  --accent-green: #6a9955;      /* Зелений для коментарів */
+  --accent-orange: #ce9178;     /* Помаранчевий для стрічок */
+  --accent-purple: #c586c0;     /* Фіолетовий для функцій */
+  --neon-cursor: #00ff00;       /* Яскраво-зелений курсор */
+  --sidebar-bg: #252526;        /* Трохи світліший фон для блоків */
+  --border-color: #3e3e42;      /* Колір рамок */
+  
+  /* Моноширинний шрифт - серце дизайну */
+  --font-code: 'Fira Code', 'Courier New', Courier, monospace;
+}
+
+/* --- Загальні стилі --- */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-code);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Імітація номерів рядків зліва (як у редакторі) */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  border-left: 2px solid var(--border-color);
+  position: relative;
+}
+
+/* --- Заголовки --- */
+h1, h2, h3 {
+  color: var(--accent-blue);
+  font-weight: normal; /* У коді рідко буває жирний шрифт */
+}
+
+h1::before {
+  content: "function "; /* Декоративний елемент */
+  color: var(--accent-purple);
+  opacity: 0.8;
+}
+
+h1::after {
+  content: "() {";
+  color: var(--text-main);
+}
+
+h2::before {
+  content: "// ";
+  color: var(--accent-green);
+}
+
+/* --- Посилання --- */
+a {
+  color: var(--accent-orange);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--accent-orange);
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  background-color: rgba(206, 145, 120, 0.1);
+  border-bottom-style: solid;
+}
+
+/* --- Блоки коду (або цитати) --- */
+pre, code {
+  background-color: #000;
+  border-radius: 4px;
+  padding: 2px 5px;
+  font-family: var(--font-code);
+  color: var(--accent-orange);
+}
+
+.code-block {
+  background-color: var(--sidebar-bg);
+  border: 1px solid var(--border-color);
+  padding: 15px;
+  border-radius: 6px;
+  margin: 20px 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+/* --- Кнопки --- */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: var(--accent-blue);
+  border: 1px solid var(--accent-blue);
+  font-family: var(--font-code);
+  cursor: pointer;
+  transition: 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn:hover {
+  background-color: var(--accent-blue);
+  color: var(--bg-color);
+  box-shadow: 0 0 10px var(--accent-blue); /* Ефект світіння */
+}
+
+/* --- Ефект друкарської машинки / Курсор --- */
+.typing-effect::after {
+  content: "|";
+  display: inline-block;
+  background-color: var(--neon-cursor);
+  width: 10px;
+  height: 1em;
+  margin-left: 5px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* --- Навігація --- */
+nav {
+  background-color: var(--sidebar-bg);
+  padding: 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: var(--accent-purple);
+  border: none;
+}
+
+nav a::before {
+  content: "<";
+  color: var(--text-main);
+}
+nav a::after {
+  content: "/>";
+  color: var(--text-main);
+}
+
+/* --- Футер --- */
+footer {
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
+  color: var(--accent-green);
+  border-top: 1px solid var(--border-color);
+}
